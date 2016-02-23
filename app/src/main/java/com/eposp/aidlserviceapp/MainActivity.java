@@ -11,7 +11,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
-
+    private String strTransType="trade";// 交易类型
+    private String strOrderId="11111111111111111";// 订单号
+    private String strTransTime="20160222";// 交易时间
+    private String strAmount="100";// 交易金额
+    private String strCardNo="6222521544545784";// 交易卡号
+    private String strTerminalNo="123456789";// 终端编号
+    private String strPosMid="123123123";// 商户编号
+    private String strMechantName="xqf";// 顶级商户名
+    private String strSignPic;// 签名图片名
+    private String strTempOrderId;
+    private String strBillNo;//上传图片需要的
+    String SUCCESS="SUCCESS";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,10 +64,21 @@ public class MainActivity extends AppCompatActivity {
     public void payendClick(View v){
         try {
             MyIntentService.mIRemoteServiceCallback.payEnd(
-                    true, "SUCCESS","resultmsg");
+                    true, SUCCESS,"{\n" +
+                            "  \"status\":"+SUCCESS +",\n" +
+                            "  \"MerchantName\":"+strMechantName+",\n" +
+                            "  \"PosMid\":"+strPosMid+",\n" +
+                            "\"TerminalNo\":"+strTerminalNo+",\n" +
+                            "\"CardNo\":"+strCardNo+",\n" +
+                            "\"TransType\": "+strTransType+",\n" +
+                            "\"OrderId\":"+strOrderId+",\n" +
+                            "\"Amount\":"+strAmount+",\n" +
+                            "\"TransTime\":"+strTransTime+",\n" +
+                            "}");
         } catch (RemoteException e) {
             e.printStackTrace();
 
         }
+        finish();
     }
 }

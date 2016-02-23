@@ -1,2 +1,2 @@
 # AIDLServiceApp
-aidl test
+aidl test;需要配合AndroidMoreFunctionDemo使用
