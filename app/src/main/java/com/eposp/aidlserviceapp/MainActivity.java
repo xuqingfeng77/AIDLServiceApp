@@ -65,19 +65,18 @@ public class MainActivity extends AppCompatActivity {
         try {
             MyIntentService.mIRemoteServiceCallback.payEnd(
                     true, SUCCESS,"{\n" +
-                            "  \"status\":"+SUCCESS +",\n" +
-                            "  \"MerchantName\":"+strMechantName+",\n" +
-                            "  \"PosMid\":"+strPosMid+",\n" +
-                            "\"TerminalNo\":"+strTerminalNo+",\n" +
-                            "\"CardNo\":"+strCardNo+",\n" +
-                            "\"TransType\": "+strTransType+",\n" +
-                            "\"OrderId\":"+strOrderId+",\n" +
-                            "\"Amount\":"+strAmount+",\n" +
-                            "\"TransTime\":"+strTransTime+",\n" +
+                            "  \"status\":\""+SUCCESS +"\",\n" +
+                            "  \"MerchantName\":\""+strMechantName+"\",\n" +
+                            "  \"PosMid\":\""+strPosMid+"\",\n" +
+                            "\"TerminalNo\":\""+strTerminalNo+"\",\n" +
+                            "\"CardNo\":\""+(strCardNo)+"\",\n" +
+                            "\"TransType\":\""+strTransType+"\",\n" +
+                            "\"OrderId\":\""+strOrderId+"\",\n" +
+                            "\"Amount\":\""+strAmount+"\",\n" +
+                            "\"TransTime\":\""+strTransTime+"\"\n" +
                             "}");
         } catch (RemoteException e) {
             e.printStackTrace();
-
         }
         finish();
     }
